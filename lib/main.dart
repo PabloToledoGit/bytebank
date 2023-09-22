@@ -16,26 +16,34 @@ void main() => runApp(MaterialApp(
 class ListaTransferencia extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return Column(
       children: [
-        ItemTransferencia(),
-        ItemTransferencia(),
-        ItemTransferencia(),
-        ItemTransferencia(),
-        ItemTransferencia(),
+        ItemTransferencia('100.0', '1000'),
+        ItemTransferencia('200.0', '1000'),
+        ItemTransferencia('300.0', '2000'),
       ],
     );
   }
 }
 
 class ItemTransferencia extends StatelessWidget {
+
+  final String valor;
+  final String numeroConta;
+
+
+  ItemTransferencia(this.valor, this.numeroConta);
+
   @override
   Widget build(BuildContext context) {
     return Card(
         child: ListTile(
       leading: Icon(Icons.monetization_on),
-      title: Text('100.0'),
-      subtitle: Text('200.0'),
+      title: Text(valor),
+      subtitle: Text(numeroConta),
     ));
   }
 }
+
+
