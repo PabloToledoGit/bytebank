@@ -2,35 +2,41 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Transferências'),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: Icon(Icons.add),
-        ),
-        body: ListaTransferencia(),
+        body: FormularioTransferencia(),
       ),
     ));
+
+class FormularioTransferencia extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(body: Container());
+  }
+}
 
 class ListaTransferencia extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
-    return Column(
-      children: [
-        ItemTransferencia(Transferencia(100.0, 1000)),
-        ItemTransferencia(Transferencia(200.0, 1000)),
-        ItemTransferencia(Transferencia(300.0, 1000)),
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Transferências'),
+      ),
+      body: Column(
+        children: <Widget>[
+          ItemTransferencia(Transferencia(100.0, 1000)),
+          ItemTransferencia(Transferencia(200.0, 1000)),
+          ItemTransferencia(Transferencia(300.0, 1000)),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {  },
+        child: Icon(Icons.add),
+      ),
     );
   }
 }
 
 class ItemTransferencia extends StatelessWidget {
-
   final Transferencia _transferencia;
-
 
   ItemTransferencia(this._transferencia);
 
@@ -45,11 +51,9 @@ class ItemTransferencia extends StatelessWidget {
   }
 }
 
-class Transferencia{
+class Transferencia {
   final double valor;
   final int numeroConta;
 
   Transferencia(this.valor, this.numeroConta);
 }
-
-
