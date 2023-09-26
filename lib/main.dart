@@ -1,15 +1,43 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
+void main() => runApp(ByteBankApp());
+
+class ByteBankApp extends StatelessWidget {
+  const ByteBankApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       home: Scaffold(
         body: FormularioTransferencia(),
       ),
-    ));
+    );
+  }
+}
 
 class FormularioTransferencia extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Container());
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Teste'),
+      ),
+      body: Column(
+        children: [
+          TextField(
+            style: TextStyle(fontSize: 16.0,
+            color: Colors.blue,),
+            decoration: InputDecoration(
+              labelText: 'Número da conta',
+              hintText: '0000',
+
+            ),
+          ),
+          TextField(),
+          ElevatedButton(onPressed: () {  }, child: Text(''),)
+        ],
+      ),
+    );
   }
 }
 
@@ -28,7 +56,7 @@ class ListaTransferencia extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {  },
+        onPressed: () {},
         child: Icon(Icons.add),
       ),
     );
